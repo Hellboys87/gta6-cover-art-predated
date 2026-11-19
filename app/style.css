@@ -1,0 +1,76 @@
+/* Neon Coast Cover Studio — dark studio chrome around a bright poster. */
+:root {
+  --ink: #f6eef7;
+  --dim: #b9a8c4;
+  --bg: #150a21;
+  --panel: #211233;
+  --panel-edge: #3d2358;
+  --pink: #ff4f9a;
+  --teal: #2ee6c8;
+  --gold: #ffc44d;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  background: radial-gradient(1200px 700px at 80% -10%, #47206b 0%, var(--bg) 55%) fixed, var(--bg);
+  color: var(--ink);
+  font: 15px/1.45 "Segoe UI", system-ui, sans-serif;
+}
+.shell { display: flex; gap: 28px; align-items: flex-start; padding: 26px; max-width: 1560px; margin: 0 auto; }
+.panel {
+  width: 318px; flex: 0 0 318px; display: flex; flex-direction: column; gap: 18px;
+  background: rgba(33, 18, 51, 0.92); border: 1px solid var(--panel-edge); border-radius: 16px; padding: 20px;
+}
+.brand-kicker {
+  margin: 0; font-size: 12px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--teal); font-weight: 700;
+}
+.brand h1 { margin: 2px 0 6px; font-size: 31px; line-height: 1.05; }
+.brand-sub { margin: 0; color: var(--dim); font-size: 13.5px; }
+.group { border-top: 1px solid var(--panel-edge); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.group h2 { margin: 0 0 2px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+label { display: flex; flex-direction: column; gap: 5px; font-weight: 600; font-size: 13.5px; }
+label.check { flex-direction: row; align-items: center; gap: 8px; font-weight: 500; }
+input[type="text"], select {
+  font: inherit; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--panel-edge);
+  background: #170b29; color: var(--ink);
+}
+input[type="range"] { width: 100%; accent-color: var(--pink); }
+input[type="checkbox"] { accent-color: var(--pink); width: 16px; height: 16px; }
+.file-pick {
+  display: block; text-align: center; padding: 10px; border: 1.5px dashed var(--pink); border-radius: 10px;
+  color: var(--pink); cursor: pointer; font-weight: 700;
+}
+.file-pick input { display: none; }
+.sample-row, .seg-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.sample-row button, .seg-row button {
+  font: inherit; font-size: 12.5px; font-weight: 600; padding: 7px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--panel-edge); background: #170b29; color: var(--ink);
+}
+.sample-row button:hover, .seg-row button:hover { border-color: var(--teal); }
+.seg-row button.active { background: var(--pink); border-color: var(--pink); color: #fff; }
+.sample-row button.active { background: var(--teal); border-color: var(--teal); color: #06231d; }
+.hint { margin: 0; font-size: 12.5px; color: var(--dim); }
+.slider-label span { color: var(--teal); }
+#export-btn {
+  font: inherit; font-weight: 800; font-size: 16px; padding: 12px; border: 0; border-radius: 10px; cursor: pointer;
+  background: linear-gradient(92deg, var(--pink), #ff8a3d); color: #fff;
+}
+#export-btn:hover { filter: brightness(1.1); }
+#status { margin: 0; min-height: 1.2em; font-size: 13px; color: var(--teal); }
+.fineprint { margin: 0; font-size: 11.5px; color: var(--dim); }
+.stage { flex: 1; display: flex; justify-content: center; padding-top: 4px; }
+#poster {
+  max-height: 86vh; max-width: 100%; width: auto; height: auto;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  cursor: grab; touch-action: none; background: #000;
+}
+#poster:active { cursor: grabbing; }
+/* Screenshot scenes: the poster alone fills the frame, no chrome. */
+body.shot .shell { padding: 0; max-width: none; }
+body.shot .panel { display: none; }
+body.shot .stage { padding: 0; }
+body.shot #poster { width: 100vw; height: 100vh; max-height: none; box-shadow: none; cursor: default; }
+@media (max-width: 900px) {
+  .shell { flex-direction: column; }
+  .panel { width: 100%; flex-basis: auto; }
+}

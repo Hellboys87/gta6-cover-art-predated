@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="shell" id="shell">
+  <aside class="panel" id="controls">
+    <header class="brand">
+      <p class="brand-kicker">Neon Coast</p>
+      <h1>Cover Studio</h1>
+      <p class="brand-sub">Your photos, turned into a sun-drenched multi-panel poster for the coast that never sleeps.</p>
+    </header>
+
+    <section class="group">
+      <h2>1 &middot; Photos</h2>
+      <label class="file-pick">Add your photos
+        <input id="photo-input" type="file" accept="image/*" multiple>
+      </label>
+      <div class="sample-row" id="sample-row" role="group" aria-label="Starter photos"></div>
+      <label class="check"><input id="fill-all" type="checkbox"> One photo fills every panel</label>
+      <p class="hint">Click a panel on the poster to select it, drag to reposition, then zoom.</p>
+      <label class="slider-label">Panel zoom <span id="zoom-value">100%</span>
+        <input id="zoom" type="range" min="100" max="300" value="100">
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>2 &middot; Layout &amp; grade</h2>
+      <div class="seg-row" id="layout-row" role="group" aria-label="Layout"></div>
+      <div class="seg-row" id="grade-row" role="group" aria-label="Colour grade"></div>
+    </section>
+
+    <section class="group">
+      <h2>3 &middot; Lettering</h2>
+      <label>Title <input id="title-input" type="text" maxlength="26" value="NEON COAST"></label>
+      <label>Subtitle <input id="subtitle-input" type="text" maxlength="42" value="welcome to Leonida nights"></label>
+      <label>Caption <input id="caption-input" type="text" maxlength="64" value="One last ride down Ocean Drive"></label>
+      <label class="check"><input id="heat-toggle" type="checkbox" checked> Show heat stars</label>
+      <label class="slider-label">Heat <span id="heat-value">5</span>
+        <input id="heat" type="range" min="0" max="5" step="1" value="5">
+      </label>
+      <label class="check"><input id="badge-toggle" type="checkbox" checked> Show corner badge</label>
+    </section>
+
+    <section class="group">
+      <h2>4 &middot; Export</h2>
+      <label>Size
+        <select id="size-select">
+          <option value="1080x1080">Square &middot; 1080 &times; 1080</option>
+          <option value="1080x1350" selected>Poster &middot; 1080 &times; 1350</option>
+          <option value="1920x1080">Wide &middot; 1920 &times; 1080</option>
+        </select>
+      </label>
+      <button id="export-btn" type="button">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+    <p class="fineprint">Original fan-made tool. No Rockstar artwork, logos or fonts.</p>
+  </aside>
+
+  <main class="stage" id="stage">
+    <canvas id="poster" width="1080" height="1350" aria-label="Cover preview"></canvas>
+  </main>
+</div>
+<script type="module" src="./src/editor.js"></script>
+</body>
+</html>
